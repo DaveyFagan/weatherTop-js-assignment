@@ -1,0 +1,10 @@
+
+<div class="ui inverted five cards">
+  {{>card title = station.name }}
+  {{#each station.readings}}{{#if @last}}
+  {{>card title = "Weather" valueC = weatherCode}}
+  {{>card title = "Temperature" valueA = temperature c = " C" valueB = tempF f = " F"}}
+  {{>card title = "Wind Speed" valueA = beaufort  bft = " bft" valueB = windCompass str = "Feels like: " valueC = chill}}
+  {{>card title = "Pressure" valueA = pressure hpa = "hPa"}}
+  {{/if}}{{/each}}
+</div>

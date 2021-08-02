@@ -1,0 +1,54 @@
+
+<div class="ui inverted five cards">
+    <div class="card">
+        <div class="content">
+            <div class="header">
+                {{name}}
+                <i class="large red marker icon"></i>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <div class="header">
+                Weather
+            </div>
+          <div class = "description">           
+            {{#each readings}}{{#if @last}}{{weatherCode}}{{/if}}{{/each}}
+          </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+          <div class="header">
+            Temperature
+          </div>
+          <div class = "description">           
+            <div>{{#each readings}}{{#if @last}}{{temperature}}{{/if}}{{/each}} C</div>
+            <div>{{#each readings}}{{#if @last}}{{tempF}}{{/if}}{{/each}} F</div>
+          </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <div class="header">
+                Wind
+                <i class="large green wind icon"></i>
+            </div>
+          <div class="description">
+            {{#each readings}}{{#if @last}}{{beaufort}}{{/if}}{{/each}} bft
+          </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <div class="header">
+                Pressure
+                <i class="large orange expand arrows alternate icon"></i>
+            </div>
+          <div class="description">
+            {{#each readings}}{{#if @last}}{{pressure}}{{/if}}{{/each}} hPa
+          </div>
+          </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{{> menu id="dashboard"}}
+
+{{#each stations}}
+  <section class="ui segment">
+    <h2 class="ui header">
+      {{name}}
+    </h2>
+     <a href="/station/{{id}}"> <i class="folder outline icon"></i></a>
+  </section>
+{{/each}}
+{{>add-station-form}}
