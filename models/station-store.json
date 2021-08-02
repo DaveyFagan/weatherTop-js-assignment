@@ -3,6 +3,9 @@
     {
       "id": "01",
       "name": "Tramore",
+      "lat": 52.1614,
+      "lng": 7.1493,
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "readings": [
         {
           "id": "02",
@@ -26,13 +29,22 @@
           "temperature": 8,
           "windSpeed": 1,
           "pressure": 1005,
-          "windDirection": 101
+          "windDirection": 101,
+          "weatherCode": "Snow",
+          "tempF": 46.4,
+          "beaufort": 1,
+          "windCompass": "East South East",
+          "chill": 9.974000000000002,
+          "latestIcon": "snowflake"
         }
       ]
     },
     {
       "id": "05",
       "name": "Dunmore",
+      "lat": 52.1528,
+      "lng": 6.9948,
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "readings": [
         {
           "id": "06",
@@ -48,9 +60,31 @@
           "temperature": 0.5,
           "windSpeed": 3.5,
           "pressure": 1000,
-          "windDirection": 102
+          "windDirection": 102,
+          "weatherCode": "Partial clouds",
+          "tempF": 32.9,
+          "beaufort": 1,
+          "windCompass": "East South East",
+          "chill": -0.14048980101855166,
+          "latestIcon": "cloud sun"
         }
       ]
+    },
+    {
+      "id": "cfe52730-f38a-11eb-b6d5-bd80d89dbfd5",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "name": "Swords",
+      "lat": "12",
+      "lng": "12",
+      "readings": []
+    },
+    {
+      "id": "dcf67d70-f38a-11eb-b6d5-bd80d89dbfd5",
+      "userid": "2b6f0989-7b7f-4a38-ad26-aa06b922d751",
+      "name": "Malahide",
+      "lat": "121",
+      "lng": "12",
+      "readings": []
     }
   ]
 }

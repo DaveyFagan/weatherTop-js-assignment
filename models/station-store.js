@@ -1,31 +1,35 @@
 'use strict';
 
+const _ = require("lodash");
+const JsonStore = require("./json-store");
+
 const stationStore = {
 
-  stationCollection: require('./station-store.json').stationCollection,
+  store: new JsonStore("./models/station-store.json", {
+    stationCollection: []
+  }),
+  collection: "stationCollection",
 
   getAllStations() {
     return this.stationCollection;
   },
 
   getStation(id) {
-    let foundStation = null;
-    for (let station of this.stationCollection) {
-      if (id == station.id) {
-        foundStation = station;
-      }
-    }
-
-    return foundStation;
+    return this.store.findOneBy(this.collection, { id: id });
   },
-  
+
   addStation(station) {
-  this.stationCollection.push(station);
-},
-  
-    addReading(id, reading) {
+    this.store.add(this.collection, station);
+    this.store.save();
+  },
+
+  addReading(id, reading) {
     const station = this.getStation(id);
     station.readings.push(reading);
+  },
+
+  getUserStations(userid) {
+    return this.store.findBy(this.collection, { userid: userid });
   },
 };
 

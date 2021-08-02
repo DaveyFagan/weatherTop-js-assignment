@@ -1,6 +1,6 @@
 
 <div class="ui inverted five cards">
-  {{>card title = station.name icon = "marker" colour = "violet"}}
+  {{>card title = station.name icon = "marker" colour = "violet" valueC = station.lat valueD = station.lng lat = "Lat: " lng = "Lng: "}}
   {{#each station.readings}}{{#if @last}}
   {{>card title = "Weather" valueC = weatherCode icon = latestIcon colour = "red"}}
   {{>card title = "Temp" valueA = temperature c = " C" valueB = tempF f = " F" icon = "temperature low" colour = "blue"}}
