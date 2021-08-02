@@ -15,11 +15,14 @@ const station = {
     logger.info('Station = ' + station);
 
     const getLatestWeather = stationAnalytics.getLatestWeather(station);
+    //const maxTemp = stationAnalytics.getMaxTemp(station);
+   // logger.info("max temp is: " + maxTemp);
 
     const viewData = {
       title: 'Station',
       station: stationStore.getStation(stationId),
       getLatestWeather: getLatestWeather,
+      //maxtemperature: maxTemp,
     };
     response.render('station-id', viewData);
   },

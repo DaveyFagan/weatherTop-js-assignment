@@ -1,10 +1,10 @@
 
 <div class="ui inverted five cards">
   {{>card title = station.name icon = "marker" colour = "violet" valueC = station.lat valueD = station.lng lat = "Lat: " lng = "Lng: "}}
-  {{#each station.readings}}{{#if @last}}
+    {{#each station.readings}}{{#if @last}}
   {{>card title = "Weather" valueC = weatherCode icon = latestIcon colour = "red"}}
-  {{>card title = "Temp" valueA = temperature c = " C" valueB = tempF f = " F" icon = "temperature low" colour = "blue"}}
-  {{>card title = "Wind Speed" valueA = beaufort  bft = " bft" valueB = windCompass str = "Feels like: " valueC = chill icon = "wind" colour = "green"}}
-  {{>card title = "Pressure" valueA = pressure hpa = "hPa" icon = "centos" colour = "orange"}}
-  {{/if}}{{/each}}
+  {{>card title = "Temp" valueA = temperature c = " C" valueB = tempF f = " F" icon = "temperature low" colour = "blue" max = "Max: " min = "Min: " valueD = maxTemp valueE = minTemp}}
+  {{>card title = "Wind Speed" valueA = beaufort  bft = " bft" valueB = windCompass str = "Feels like: " valueC = chill icon = "wind" colour = "green" max = "Max: " min = "Min: "}}
+  {{>card title = "Pressure" valueA = pressure hpa = "hPa" icon = "centos" colour = "orange" max = "Max: " min = "Min: "}}
+ {{/if}}{{/each}}
 </div>

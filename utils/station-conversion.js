@@ -1,47 +1,61 @@
 "use strict";
 
 const stationConversion = {
-  
+
   convertWeatherCode(code) {
-   if(code ==100){
-     return "Clear";
-   }   if(code ==200){
-     return "Partial clouds";
-   }   if(code ==300){
-     return "Cloudy";
-   }   if(code ==400){
-     return "Light Showers";
-   }   if(code ==500){
-     return "Heavy Showers";
-   }   if(code ==600){
-     return "Rain";
-   }   if(code ==700){
-     return "Snow";
-   }   if(code ==800){
-     return "Thunder";
-   }   else{
-     return "incorrect";
-   }
+    if (code == 100) {
+      return "Clear";
+    }
+    if (code == 200) {
+      return "Partial clouds";
+    }
+    if (code == 300) {
+      return "Cloudy";
+    }
+    if (code == 400) {
+      return "Light Showers";
+    }
+    if (code == 500) {
+      return "Heavy Showers";
+    }
+    if (code == 600) {
+      return "Rain";
+    }
+    if (code == 700) {
+      return "Snow";
+    }
+    if (code == 800) {
+      return "Thunder";
+    } else {
+      return "incorrect";
+    }
   },
 
   convertWeatherIcons(code) {
-    if(code ==100){
+    if (code == 100) {
       return "sun";
-    }   if(code ==200){
+    }
+    if (code == 200) {
       return "cloud sun";
-    }   if(code ==300){
+    }
+    if (code == 300) {
       return "cloud";
-    }   if(code ==400){
+    }
+    if (code == 400) {
       return "cloud sun rain";
-    }   if(code ==500){
+    }
+    if (code == 500) {
       return "cloud showers heavy";
-    }   if(code ==600){
+    }
+    if (code == 600) {
       return "cloud rain";
-    }   if(code ==700){
+    }
+    if (code == 700) {
       return "snowflake";
-    }   if(code ==800){
+    }
+    if (code == 800) {
       return "bolt";
-    }   else{
+    } else {
       return "sun";
     }
   },
@@ -80,7 +94,7 @@ const stationConversion = {
     }
     return -1;
   },
-  
+
   degreesToCompass(deg) {
     if (deg > 11.25 && deg <= 33.75) {
       return "North North East";
@@ -116,13 +130,16 @@ const stationConversion = {
       return "North";
     }
   },
-  
+
   windChillCalculator(temperature, windSpeed) {
     return 13.2 + 0.6215 * temperature - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * temperature * Math.pow(windSpeed, 0.16);
-  }
-  
+  },
 
 
 };
+  
+
+
+
 
 module.exports = stationConversion;
