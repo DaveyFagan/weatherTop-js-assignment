@@ -11,6 +11,7 @@ const stationAnalytics = {
     let beaufort = null;
     let windCompass = null;
     let chill = null;
+    let latestIcon = null;
     if(station.readings.length > 0){
       const latestReading =station.readings[station.readings.length - 1];
       logger.info("Latest readings are: " + latestReading.code);
@@ -29,6 +30,10 @@ const stationAnalytics = {
       
       chill = stationConversion.windChillCalculator(latestReading.temperature, latestReading.windSpeed);
       latestReading.chill = chill;
+
+      latestIcon = stationConversion.convertWeatherIcons(latestReading.code);
+      latestReading.latestIcon = latestIcon;
+      logger.info("Latest icon is: " + latestIcon);
     }
   }
 };

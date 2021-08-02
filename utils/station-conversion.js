@@ -24,6 +24,28 @@ const stationConversion = {
    }
   },
 
+  convertWeatherIcons(code) {
+    if(code ==100){
+      return "sun";
+    }   if(code ==200){
+      return "cloud sun";
+    }   if(code ==300){
+      return "cloud";
+    }   if(code ==400){
+      return "cloud sun rain";
+    }   if(code ==500){
+      return "cloud showers heavy";
+    }   if(code ==600){
+      return "cloud rain";
+    }   if(code ==700){
+      return "snowflake";
+    }   if(code ==800){
+      return "bolt";
+    }   else{
+      return "sun";
+    }
+  },
+
   celciusToFahrenheit(temperature) {
     return temperature * 1.8 + 32;
   },
