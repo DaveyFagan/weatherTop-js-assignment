@@ -3,6 +3,9 @@
 const logger = require('../utils/logger');
 const stationStore = require('../models/station-store.js');
 const stationAnalytics = require("../utils/station-analytics.js");
+const uuid = require("uuid");
+const _ = require('lodash');
+
 
 
 const station = {
@@ -30,12 +33,15 @@ const station = {
   addReading(request, response) {
     const stationId = request.params.id;
     const station = stationStore.getStation(stationId);
+    var today = new Date();
     const newReading = {
+      id: uuid.v1(),
       code: request.body.code,
       temperature: request.body.temperature,
       windSpeed: request.body.windSpeed,
       windDirection: request.body.windDirection,
       pressure: request.body.pressure,
+      date:today.toLocaleString()
     };
     stationStore.addReading(stationId, newReading);
     response.redirect('/station/' + stationId);
