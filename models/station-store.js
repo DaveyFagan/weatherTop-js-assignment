@@ -39,6 +39,12 @@ const stationStore = {
     this.store.save();
     // TODO : remove the song with id songId from the playlist
   },
+
+  removeStation(id) {
+    const station = this.getStation(id);
+    this.store.remove(this.collection, station);
+    this.store.save();
+  },
 };
 
 module.exports = stationStore;
