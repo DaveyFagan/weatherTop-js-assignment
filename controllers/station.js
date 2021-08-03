@@ -40,6 +40,14 @@ const station = {
     stationStore.addReading(stationId, newReading);
     response.redirect('/station/' + stationId);
   },
+
+  deleteReading(request, response) {
+    const stationId = request.params.id;
+    const readingId = request.params.readingid;
+    logger.info(`Deleting reading ${readingId} from station ${stationId}`);
+    stationStore.removeReading(stationId, readingId);
+    response.redirect('/station/' + stationId);
+  },
 };
 
 module.exports = station;
