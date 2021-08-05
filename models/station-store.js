@@ -45,6 +45,15 @@ const stationStore = {
     this.store.remove(this.collection, station);
     this.store.save();
   },
+
+
+  updateUser(user, newUser) {
+    user.firstName = newUser.firstName;
+    user.lastName = newUser.lastName;
+    user.email = newUser.email;
+    user.password = newUser.password;
+    this.store.save();
+  },
 };
 
 module.exports = stationStore;

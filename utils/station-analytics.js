@@ -3,6 +3,7 @@
 const logger = require('../utils/logger');
 const stationConversion = require("../utils/station-conversion.js");
 
+
 const stationAnalytics = {
 
   getLatestWeather(station) {
@@ -18,6 +19,7 @@ const stationAnalytics = {
     let minWind = null;
     let maxPressure = null;
     let minPressure = null;
+    let tempTrend = null;
     if(station.readings.length > 0){
       const latestReading =station.readings[station.readings.length - 1];
       logger.info("Latest readings are: " + latestReading.code);
@@ -64,6 +66,9 @@ const stationAnalytics = {
       minPressure = stationAnalytics.getMinPressure(station);
       latestReading.minPressure = minPressure;
       logger.info("Min pressure;" + minPressure);
+
+      //tempTrend = stationAnalytics.tempTrend(this.calcTrend());
+      //logger.info("Temperature trend" + tempTrend);
     }
   },
 
@@ -143,8 +148,29 @@ const stationAnalytics = {
       }
       return minPressure;
     }
+  },
+/*
+  calcTrend(station, ...values) {
+  let trend = 0;
+  if (values.length > 2) {
+    if (( values[2] > values[1] ) && (values[1] > values[0])) {
+      trend = 1;
+    } else if (( values[2] < values[1] ) && (values[1] < values[0])) {
+      trend = -1;
+    }
   }
+  return trend;
+},
 
+  tempTrend(station, ...readings) {
+  let trend = 0;
+  if (station.readings.length() > 2) {
+    let values = station.readings.temperature.slice(Math.max(station.readings.temperature.length - 3,0));
+    trend = calcTrend(values);
+  }
+  return trend;
+}
+*/
 };
 
 module.exports = stationAnalytics;

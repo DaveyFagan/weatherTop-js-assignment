@@ -8,6 +8,7 @@ const dashboard = require("./controllers/dashboard.js");
 const about = require("./controllers/about.js");
 const start = require("./controllers/start.js");
 const station = require('./controllers/station.js');
+const update = require("./controllers/update.js");
 
 
 //router.get("/", dashboard.index);
@@ -21,12 +22,16 @@ router.get('/signup', accounts.signup);
 router.get('/logout', accounts.logout);
 router.get('/station/:id/deletereading/:readingid', station.deleteReading);
 router.get("/dashboard/deletestation/:id", dashboard.deleteStation);
+router.get('/update', update.index);
 
 
 router.post('/dashboard/addstation', dashboard.addStation);
 router.post('/station-id/:id/addreading', station.addReading);
 router.post('/register', accounts.register);
 router.post('/authenticate', accounts.authenticate);
+router.post('/update', update.update);
+
+
 
 module.exports = router;
 
