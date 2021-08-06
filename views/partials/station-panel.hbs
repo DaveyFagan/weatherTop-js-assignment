@@ -3,8 +3,8 @@
   {{>card title = station.name icon = "marker" colour = "violet" valueC = station.lat valueD = station.lng lat = "Lat: " lng = "Lng: "}}
     {{#each station.readings}}{{#if @last}}
   {{>card title = "Weather" valueC = weatherCode icon = latestIcon colour = "red"}}
-  {{>card title = "Temp" valueA = temperature c = " C" valueB = tempF f = " F" icon = "temperature low" colour = "blue" max = "Max: " min = "Min: " valueD = maxTemp valueE = minTemp}}
-  {{>card title = "Wind Speed" valueA = beaufort  bft = " bft" valueB = windCompass str = "Feels like: " valueC = chill icon = "wind" colour = "green" max = "Max: " min = "Min: " valueD = maxWind valueE = minWind}}
-  {{>card title = "Pressure" valueA = pressure hpa = "hPa" icon = "centos" colour = "orange" max = "Max: " min = "Min: " valueD = maxPressure valueE = minPressure}}
+  {{>card title = "Temp" valueA = temperature c = " C" valueB = tempF f = " F" icon = "temperature low" colour = "blue" max = "Max: " min = "Min: " valueD = maxTemp valueE = minTemp trendy = tempTrend}}
+  {{>card title = "Wind Speed" valueA = beaufort  bft = " bft" valueB = windCompass str = "Feels like: " valueC = chill icon = "wind" colour = "green" max = "Max: " min = "Min: " valueD = maxWind valueE = minWind trendy = windSpeedTrend}}
+  {{>card title = "Pressure" valueA = pressure hpa = "hPa" icon = "centos" colour = "orange" max = "Max: " min = "Min: " valueD = maxPressure valueE = minPressure trendy = pressureTrend}}
  {{/if}}{{/each}}
 </div>

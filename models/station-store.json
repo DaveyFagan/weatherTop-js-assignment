@@ -83,7 +83,9 @@
           "maxWind": 3.5,
           "minWind": 1,
           "maxPressure": 1000,
-          "minPressure": 999
+          "minPressure": 999,
+          "tempTrend": "arrow down",
+          "pressureTrend": "arrow up"
         }
       ]
     }

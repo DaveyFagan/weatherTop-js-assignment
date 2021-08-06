@@ -1,26 +1,25 @@
 {{> menu id="update"}}
-
 <div class="ui two column grid basic middle aligned segment">
     <div class="column">
         <form class="ui stacked inverted grey segment form" action="/update" method="POST">
             <h3 class="ui header">Edit Profile</h3>
             <div class="two fields">
-                <div class="field">
+        <div class="field">
                     <label>First Name</label>
-                    <input placeholder="{{user.firstName}}" type="text" name="firstname">
+                    <input placeholder="{{user.firstName}}" type="text" name="firstname" value = "{{user.firstName}}">
                 </div>
                 <div class="field">
                     <label>Last Name</label>
-                    <input placeholder="{{user.lastName}}" type="text" name="lastname">
+                    <input placeholder="{{user.lastName}}" type="text" name="lastname" value = "{{user.lastName}}">
                 </div>
             </div>
             <div class="field">
                 <label>Email</label>
-                <input placeholder="{{user.email}}" type="text" name="email">
+                <input placeholder="{{user.email}}" type="text" name="email" value="{{user.email}}">
             </div>
             <div class="field">
                 <label>Password</label>
-                <input type="password" name="password">
+                <input type="password" name="password" value = "{{user.password}}">
             </div>
             <button class="ui black submit button">Submit</button>
         </form>

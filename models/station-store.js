@@ -49,9 +49,9 @@ const stationStore = {
 
   updateUser(user, newUser) {
     user.firstName = newUser.firstName;
-    user.lastName = newUser.lastName;
-    user.email = newUser.email;
-    user.password = newUser.password;
+   // user.lastName = newUser.lastName;
+   // user.email = newUser.email;
+   // user.password = newUser.password;
     this.store.save();
   },
 };

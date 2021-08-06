@@ -20,6 +20,8 @@ const stationAnalytics = {
     let maxPressure = null;
     let minPressure = null;
     let tempTrend = null;
+    let pressureTrend = null;
+    let windSpeedTrend = null;
     if(station.readings.length > 0){
       const latestReading =station.readings[station.readings.length - 1];
       logger.info("Latest readings are: " + latestReading.code);
@@ -67,8 +69,17 @@ const stationAnalytics = {
       latestReading.minPressure = minPressure;
       logger.info("Min pressure;" + minPressure);
 
-      //tempTrend = stationAnalytics.tempTrend(this.calcTrend());
-      //logger.info("Temperature trend" + tempTrend);
+      tempTrend = stationAnalytics.getTempTrend(station);
+      latestReading.tempTrend = tempTrend;
+      logger.info("Temperature trend: " + tempTrend);
+
+      pressureTrend = stationAnalytics.getPressureTrend(station);
+      latestReading.pressureTrend = pressureTrend;
+      logger.info("Pressure trend: " + pressureTrend);
+
+      windSpeedTrend = stationAnalytics.getWindSpeedTrend(station);
+      latestReading.windSpeedTrend = windSpeedTrend;
+      logger.info("WindSpeed trend: " + windSpeedTrend);
     }
   },
 
@@ -149,6 +160,82 @@ const stationAnalytics = {
       return minPressure;
     }
   },
+
+  getTempTrend(station) {
+    let trend = null;
+    if (station.readings.length > 0) {
+      if (station.readings.length > 1) {
+        if (station.readings[station.readings.length - 2].temperature < station.readings[station.readings.length - 1].temperature) {
+          trend = "arrow up";
+        } else if (station.readings[station.readings.length - 2].temperature > station.readings[station.readings.length - 1].temperature) {
+          trend = "arrow down";
+        } else {
+          trend = "minus";
+        }
+      }
+      if (station.readings.length > 2) {
+        if (station.readings[station.readings.length - 3].temperature < station.readings[station.readings.length - 2].temperature && station.readings[station.readings.length - 2].temperature < station.readings[station.readings.length - 1].temperature) {
+          trend = "arrow up";
+        } else if (station.readings[station.readings.length - 3].temperature > station.readings[station.readings.length - 1].temperature && station.readings[station.readings.length - 2].temperature > station.readings[station.readings.length - 1].temperature) {
+          trend = "arrow down";
+        } else {
+          trend = "minus";
+        }
+      }
+    }
+    return trend;
+  },
+
+  getPressureTrend(station) {
+    let trend = null;
+    if (station.readings.length > 0) {
+      if (station.readings.length > 1) {
+        if (station.readings[station.readings.length - 2].pressure < station.readings[station.readings.length - 1].pressure) {
+          trend = "arrow up";
+        } else if (station.readings[station.readings.length - 2].pressure > station.readings[station.readings.length - 1].pressure) {
+          trend = "arrow down";
+        } else {
+          trend = "minus";
+        }
+      }
+      if (station.readings.length > 2) {
+        if (station.readings[station.readings.length - 3].pressure < station.readings[station.readings.length - 2].pressure && station.readings[station.readings.length - 2].pressure < station.readings[station.readings.length - 1].pressure) {
+          trend = "arrow up";
+        } else if (station.readings[station.readings.length - 3].pressure > station.readings[station.readings.length - 2].pressure && station.readings[station.readings.length - 2].pressure > station.readings[station.readings.length - 1].pressure) {
+          trend = "arrow down";
+        } else {
+          trend = "minus";
+        }
+      }
+    }
+    return trend;
+  },
+
+  getWindSpeedTrend(station) {
+    let trend = null;
+    if (station.readings.length > 0) {
+      if (station.readings.length > 1) {
+        if (station.readings[station.readings.length - 2].windSpeed < station.readings[station.readings.length - 1].windSpeed) {
+          trend = "arrow up";
+        } else if (station.readings[station.readings.length - 2].windSpeed > station.readings[station.readings.length - 1].windSpeed) {
+          trend = "arrow down";
+        } else {
+          trend = "minus";
+        }
+      }
+      if (station.readings.length > 2) {
+        if (station.readings[station.readings.length - 3].windSpeed < station.readings[station.readings.length - 2].windSpeed && station.readings[station.readings.length - 2].windSpeed < station.readings[station.readings.length - 1].windSpeed) {
+          trend = "arrow up";
+        } else if (station.readings[station.readings.length - 3].windSpeed > station.readings[station.readings.length - 2].windSpeed && station.readings[station.readings.length - 2].windSpeed > station.readings[station.readings.length - 1].windSpeed) {
+          trend = "arrow down";
+        } else {
+          trend = "minus";
+        }
+      }
+    }
+    return trend;
+  }
+
 /*
   calcTrend(station, ...values) {
   let trend = 0;

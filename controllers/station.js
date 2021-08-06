@@ -16,7 +16,32 @@ const station = {
 
     const station = stationStore.getStation(stationId);
     logger.info('Station = ' + station);
+/*
+    let trend = null;
+      if(station.readings.length > 0)
+    {
+      if (station.readings.length > 1) {
+        if (station.readings[station.readings.length - 2].temperature < station.readings[station.readings.length - 1].temperature) {
+          trend = "large green arrow up icon";
+        } else if (station.readings[station.readings.length - 2].temperature > station.readings[station.readings.length - 1].temperature) {
+          trend = "large green arrow down icon";
+        } else {
+          trend = "large green minus icon";
+        }
+      }
+      if (station.readings.length > 2) {
+        if (station.readings[station.readings.length - 3].temperature < station.readings[station.readings.length - 1].temperature) {
+          trend = "large green arrow up icon";
+        } else if (station.readings[station.readings.length - 3].temperature > station.readings[station.readings.length - 1].temperature) {
+          trend = "large green arrow down icon";
+        } else {
+          trend = "large green minus icon";
+        }
+      }
+    }
 
+logger.info("trend is : " + trend);
+*/
     const getLatestWeather = stationAnalytics.getLatestWeather(station);
     //const maxTemp = stationAnalytics.getMaxTemp(station);
    // logger.info("max temp is: " + maxTemp);
