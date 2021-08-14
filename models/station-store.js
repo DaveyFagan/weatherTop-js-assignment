@@ -37,7 +37,6 @@ const stationStore = {
     const readings = station.readings;
     _.remove(readings, { id: readingId });
     this.store.save();
-    // TODO : remove the song with id songId from the playlist
   },
 
   removeStation(id) {
@@ -48,10 +47,11 @@ const stationStore = {
 
 
   updateUser(user, newUser) {
-    user.firstName = newUser.firstName;
-   // user.lastName = newUser.lastName;
-   // user.email = newUser.email;
-   // user.password = newUser.password;
+   // user.id = newUser.id;
+    user.firstName = newUser.firstname;
+    user.lastName = newUser.lastname;
+    user.email = newUser.email;
+    user.password = newUser.password;
     this.store.save();
   },
 };

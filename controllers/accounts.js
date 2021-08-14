@@ -53,14 +53,11 @@ const accounts = {
 
     getCurrentUser(request) {
         const userEmail = request.cookies.station;
-        return userstore.getUserByEmail(userEmail);
-    },
-
-    updateProfile(request, response) {
-        const viewData = {
-            title: 'Update profile',
-        };
-        response.render('update', viewData);
+        if(userEmail){
+            return userstore.getUserByEmail(userEmail);
+        } else {
+            return null;
+        }
     },
 
 };

@@ -10,24 +10,28 @@ const update = {
     index(request, response) {
         logger.info("update rendering");
         const loggedInUser = accounts.getCurrentUser(request);
-
+        const user = userStore.getUserByEmail(loggedInUser.email);
         const viewData = {
             title: "Update profile",
-            user: userStore.getUserById(loggedInUser.id),
+            user: user,
         };
-        logger.info("about to render", userStore.getUserById(loggedInUser.id));
+        logger.info("about to render", user);
         response.render("update", viewData);
     },
 
     update(request, response) {
-        const user = request.body.id;
+
+        const loggedInUser = accounts.getCurrentUser(request);
+        const user = userStore.getUserByEmail(loggedInUser.email);
+        const b = request.body;
+
         logger.info("User: " + user);
         //user.id = uuid.v1();
         const newUser = {
-            firstName: request.body.firstName
-           // lastName: request.body.lastName,
-           // email: request.body.email,
-           // password: request.body.password
+            firstname: request.body.firstname,
+            lastname: request.body.lastname,
+            email: request.body.email,
+            password: request.body.password
         };
         logger.info(`Updating user ${user}`);
         stationStore.updateUser(user, newUser);
@@ -36,4 +40,3 @@ const update = {
 };
 
 module.exports = update;
-
