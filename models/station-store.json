@@ -4,7 +4,7 @@
       "id": "01",
       "name": "Tramore",
       "lat": 52.1614,
-      "lng": 7.1493,
+      "lng": -7.1493,
       "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "readings": [
         {
@@ -98,7 +98,7 @@
       "id": "05",
       "name": "Dunmore",
       "lat": 52.1528,
-      "lng": 6.9948,
+      "lng": -6.9948,
       "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "readings": [
         {
@@ -158,6 +158,14 @@
           "windSpeedTrend": "minus"
         }
       ]
+    },
+    {
+      "id": "7f1df9d0-fd3f-11eb-a362-bd303205a7e7",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "name": "Swords",
+      "lat": "-6.21806",
+      "lng": "53.45972",
+      "readings": []
     }
   ]
 }
