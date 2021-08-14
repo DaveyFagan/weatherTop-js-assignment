@@ -45,6 +45,52 @@
           "minWind": 1,
           "maxPressure": 1005,
           "minPressure": 1002
+        },
+        {
+          "date": "14/8/2021, 14:08:07",
+          "code": 801,
+          "temperature": 23.34,
+          "windSpeed": 6.39,
+          "pressure": 1019,
+          "windDirection": 255,
+          "weatherCode": "incorrect",
+          "tempF": 74.012,
+          "beaufort": -1,
+          "windCompass": "West South West",
+          "chill": 24.85917247098708,
+          "latestIcon": "sun",
+          "maxTemp": 23.34,
+          "minTemp": 0.5,
+          "maxWind": 6.39,
+          "minWind": 1,
+          "maxPressure": 1019,
+          "minPressure": 1002,
+          "tempTrend": "arrow up",
+          "pressureTrend": "arrow up",
+          "windSpeedTrend": "minus"
+        },
+        {
+          "date": "14/8/2021, 14:08:29",
+          "code": 801,
+          "temperature": 23.34,
+          "windSpeed": 6.39,
+          "pressure": 1019,
+          "windDirection": 255,
+          "weatherCode": "incorrect",
+          "tempF": 74.012,
+          "beaufort": -1,
+          "windCompass": "West South West",
+          "chill": 24.85917247098708,
+          "latestIcon": "sun",
+          "maxTemp": 23.34,
+          "minTemp": 0.5,
+          "maxWind": 6.39,
+          "minWind": 1,
+          "maxPressure": 1019,
+          "minPressure": 1002,
+          "tempTrend": "minus",
+          "pressureTrend": "minus",
+          "windSpeedTrend": "minus"
         }
       ]
     },
@@ -87,8 +133,39 @@
           "tempTrend": "arrow down",
           "pressureTrend": "arrow up",
           "windSpeedTrend": "arrow up"
+        },
+        {
+          "date": "14/8/2021, 14:08:44",
+          "code": 802,
+          "temperature": 23.56,
+          "windSpeed": 1.79,
+          "pressure": 1021,
+          "windDirection": 248,
+          "weatherCode": "incorrect",
+          "tempF": 74.408,
+          "beaufort": 1,
+          "windCompass": "West South West",
+          "chill": 25.616038802448692,
+          "latestIcon": "sun",
+          "maxTemp": 23.56,
+          "minTemp": 0.5,
+          "maxWind": 3.5,
+          "minWind": 1,
+          "maxPressure": 1021,
+          "minPressure": 999,
+          "tempTrend": "minus",
+          "pressureTrend": "arrow up",
+          "windSpeedTrend": "minus"
         }
       ]
+    },
+    {
+      "id": "0877ddc0-fd01-11eb-92d0-3ff11bc89b6a",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "name": "Dallol",
+      "lat": "40.2937",
+      "lng": "14.2389",
+      "readings": []
     }
   ]
 }

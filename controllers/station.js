@@ -3,8 +3,12 @@
 const logger = require('../utils/logger');
 const stationStore = require('../models/station-store.js');
 const stationAnalytics = require("../utils/station-analytics.js");
+
+
 const uuid = require("uuid");
 const _ = require('lodash');
+const axios = require("axios");
+const oneCallRequest = `https://api.openweathermap.org/data/2.5/onecall?lat=52.160858&lon=-7.152420&units=metric&appid=3261569696a6a35939cf9e8d8cb03127`
 
 
 
@@ -53,6 +57,32 @@ logger.info("trend is : " + trend);
       //maxtemperature: maxTemp,
     };
     response.render('station-id', viewData);
+  },
+
+  async addreport(request, response) {
+    const stationId = request.params.id;
+    logger.info("rendering new report");
+    const currentStation = stationStore.getStation(stationId);
+    const stationLat = currentStation.lat;
+    const stationLng = currentStation.lng;
+    const requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${stationLat}&lon=${stationLng}&units=metric&appid=3261569696a6a35939cf9e8d8cb03127`
+    console.log("Station latitude is : " + stationLat);
+    console.log("Station longitude is : " + stationLng);
+    let report = {};
+    var today = new Date();
+    const result = await axios.get(requestUrl);
+    if (result.status == 200) {
+      const reading = result.data.current;
+      report.date = today.toLocaleString();
+      report.code = reading.weather[0].id;
+      report.temperature = reading.temp;
+      report.windSpeed = reading.wind_speed;
+      report.pressure = reading.pressure;
+      report.windDirection = reading.wind_deg;
+    }
+    console.log(report);
+    stationStore.addReading(stationId, report);
+    response.redirect('/station/' + stationId);
   },
 
   addReading(request, response) {

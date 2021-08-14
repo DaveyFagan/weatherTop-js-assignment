@@ -30,6 +30,7 @@ router.post('/station-id/:id/addreading', station.addReading);
 router.post('/register', accounts.register);
 router.post('/authenticate', accounts.authenticate);
 router.post('/update', update.update);
+router.post("/station-id/:id/addreport", station.addreport);
 
 
 

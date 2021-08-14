@@ -1,22 +1,22 @@
 {{#each station.readings}}
           <tr>
               <td>
-                {{date}}
+                {{date}}{{reading.date}}
               </td>
             <td>
-              {{code}}
+              {{code}}{{reading.code}}
             </td>
             <td>
-              {{temperature}}
+              {{temperature}}{{reading.temperature}}
             </td>
               <td>
-              {{windSpeed}}
+              {{windSpeed}}{{reading.windSpeed}}
             </td>
             <td>
-              {{windDirection}}
+              {{windDirection}}{{reading.windDirection}}
             </td>
             <td>
-              {{pressure}}
+              {{pressure}}{{reading.pressure}}
             </td>
               <td>
                   <a href="/station/{{../station.id}}/deletereading/{{id}}" class="ui button"><i class="red trash icon"></i></a>
