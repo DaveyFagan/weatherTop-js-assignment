@@ -158,14 +158,6 @@
           "windSpeedTrend": "minus"
         }
       ]
-    },
-    {
-      "id": "0877ddc0-fd01-11eb-92d0-3ff11bc89b6a",
-      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
-      "name": "Dallol",
-      "lat": "40.2937",
-      "lng": "14.2389",
-      "readings": []
     }
   ]
 }
