@@ -66,8 +66,8 @@ const station = {
         report.trendLabels.push(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}` );
       }
     }
-    console.log(report);
-   // stationStore.addReading(stationId, report);
+    //console.log(report);
+    stationStore.addReading(stationId, report);
     const station = stationStore.getStation(stationId);
     const getLatestWeather = stationAnalytics.getLatestWeather(station);
     const viewData = {
@@ -103,6 +103,44 @@ const station = {
     stationStore.removeReading(stationId, readingId);
     response.redirect('/station/' + stationId);
   },
+
+  async tempTrend(request, response) {
+    const stationId = request.params.id;
+    logger.info("rendering new report");
+    const currentStation = stationStore.getStation(stationId);
+    const stationLat = currentStation.lat;
+    const stationLng = currentStation.lng;
+    const requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${stationLat}&lon=${stationLng}&units=metric&appid=3261569696a6a35939cf9e8d8cb03127`
+    console.log("Station latitude is : " + stationLat);
+    console.log("Station longitude is : " + stationLng);
+    let report = {};
+    const result = await axios.get(requestUrl);
+    if (result.status == 200) {
+      report.tempTrend = [];
+      report.windspeedTrend = [];
+      report.pressureTrend = [];
+      report.trendLabels = [];
+      const trends = result.data.daily;
+      console.log("Result.data.daily: " + trends[0].dt * 1000);
+      for (let i=0; i<trends.length; i++) {
+        report.tempTrend.push(trends[i].temp.day);
+        report.windspeedTrend.push(trends[i].wind_speed);
+        report.pressureTrend.push(trends[i].pressure);
+        const date = new Date(trends[i].dt * 1000);
+        console.log(date);
+        report.trendLabels.push(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}` );
+      }
+    }
+    console.log(report);
+    const station = stationStore.getStation(stationId);
+    const viewData = {
+      station: stationStore.getStation(stationId),
+      title: 'Station ',
+      reading: report
+    };
+    response.render('station-id',viewData);
+  },
+
 };
 
 module.exports = station;
