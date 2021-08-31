@@ -5,19 +5,35 @@ const stationConversion = require("../utils/station-conversion.js");
 const stationStore = require('../models/station-store.js');
 const uuid = require('uuid');
 const accounts = require ('./accounts.js');
+const stationAnalytics = require("../utils/station-analytics.js");
+const _ = require('lodash');
+
+
 
 const dashboard = {
     index(request, response) {
+
         logger.info("dashboard rendering");
         const loggedInUser = accounts.getCurrentUser(request);
         const alpha = stationStore.getUserStations(loggedInUser.id).sort(function (a,b){
             return a.name.localeCompare(b.name);
         });
         logger.info(alpha);
+
+
+        console.log("Stations are: " + alpha);
+
+        let latestWeather = null;
+        for(let i = 0; i < alpha.length; i++){
+                latestWeather = stationAnalytics.getLatestWeather(alpha[i]);
+                console.log("Latest weather is: " + latestWeather);
+        }
+
+
         const viewData = {
             title: "WeatherTop Dashboard",
-            stations: alpha
-                //stationStore.getUserStations(loggedInUser.id)
+            stations: alpha,
+            latestWeather: latestWeather
         };
         logger.info("about to render", stationStore.getAllStations());
         response.render("dashboard", viewData);

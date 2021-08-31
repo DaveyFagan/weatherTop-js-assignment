@@ -234,7 +234,8 @@ const stationAnalytics = {
       }
     }
     return trend;
-  }
+  },
+
 
 /*
   calcTrend(station, ...values) {

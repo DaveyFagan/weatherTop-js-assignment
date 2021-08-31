@@ -20,41 +20,14 @@ const station = {
 
     const station = stationStore.getStation(stationId);
     logger.info('Station = ' + station);
-/*
-    let trend = null;
-      if(station.readings.length > 0)
-    {
-      if (station.readings.length > 1) {
-        if (station.readings[station.readings.length - 2].temperature < station.readings[station.readings.length - 1].temperature) {
-          trend = "large green arrow up icon";
-        } else if (station.readings[station.readings.length - 2].temperature > station.readings[station.readings.length - 1].temperature) {
-          trend = "large green arrow down icon";
-        } else {
-          trend = "large green minus icon";
-        }
-      }
-      if (station.readings.length > 2) {
-        if (station.readings[station.readings.length - 3].temperature < station.readings[station.readings.length - 1].temperature) {
-          trend = "large green arrow up icon";
-        } else if (station.readings[station.readings.length - 3].temperature > station.readings[station.readings.length - 1].temperature) {
-          trend = "large green arrow down icon";
-        } else {
-          trend = "large green minus icon";
-        }
-      }
-    }
 
-logger.info("trend is : " + trend);
-*/
     const getLatestWeather = stationAnalytics.getLatestWeather(station);
-    //const maxTemp = stationAnalytics.getMaxTemp(station);
-   // logger.info("max temp is: " + maxTemp);
+    console.log("get latest weather is: " + getLatestWeather);
 
     const viewData = {
       title: 'Station',
       station: stationStore.getStation(stationId),
       getLatestWeather: getLatestWeather,
-      //maxtemperature: maxTemp,
     };
     response.render('station-id', viewData);
   },
@@ -72,6 +45,7 @@ logger.info("trend is : " + trend);
     var today = new Date();
     const result = await axios.get(requestUrl);
     if (result.status == 200) {
+      console.log(result.data);
       const reading = result.data.current;
       report.date = today.toLocaleString();
       report.code = reading.weather[0].id;
@@ -79,10 +53,30 @@ logger.info("trend is : " + trend);
       report.windSpeed = reading.wind_speed;
       report.pressure = reading.pressure;
       report.windDirection = reading.wind_deg;
+      report.id = uuid.v1();
+
+      report.tempTrend = [];
+      report.trendLabels = [];
+      const trends = result.data.daily;
+      console.log("Result.data.daily: " + trends[0].dt * 1000);
+      for (let i=0; i<trends.length; i++) {
+        report.tempTrend.push(trends[i].temp.day);
+        const date = new Date(trends[i].dt * 1000);
+        console.log(date);
+        report.trendLabels.push(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}` );
+      }
     }
     console.log(report);
-    stationStore.addReading(stationId, report);
-    response.redirect('/station/' + stationId);
+   // stationStore.addReading(stationId, report);
+    const station = stationStore.getStation(stationId);
+    const getLatestWeather = stationAnalytics.getLatestWeather(station);
+    const viewData = {
+      station: stationStore.getStation(stationId),
+      getLatestWeather: getLatestWeather,
+      title: 'Station ',
+      reading: report
+    };
+    response.render('station-id',viewData);
   },
 
   addReading(request, response) {

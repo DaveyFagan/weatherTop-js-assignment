@@ -3,12 +3,15 @@
 {{#each stations}}
   <section class="ui segment">
     <h2 class="ui header">
-      {{name}}
+        {{>station-panel}}
     </h2>
+
      <a href="/station/{{id}}"> <i class="folder outline icon"></i></a>
       <a href="/dashboard/deletestation/{{id}}"><i class="icon trash"></i></a>
   </section>
+
 {{/each}}
+
 <section class="ui segment">
 {{>add-station-form}}
 {{>map}}
