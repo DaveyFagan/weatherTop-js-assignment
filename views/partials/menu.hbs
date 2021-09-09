@@ -1,11 +1,17 @@
 <nav class="ui menu">
-  <header id="start" class="header item"><a href="/start"> WeatherTop </a></header>
-  <div class="right menu">
-      <a id="dashboard" class="item" href="/dashboard"> Dashboard  </a>
-      <a id="about" class="item" href="/about"> About </a>
-      <a id="update" class="item" href="/update"><i class="large blue user circle outline icon"></i></a>
-      <a id="logout" class="item" href="/logout"> Logout </a>
-  </div>
+  <header id="start" class="ui header item"><a href="/start"> WeatherTop </a></header>
+    <div class="right menu">
+        <a id="dashboard" class="item" href="/dashboard"> Dashboard  </a>
+        <a id="about" class="item" href="/about"> About </a>
+        <div class="ui simple dropdown item">
+            <i class="large blue user circle outline icon"></i>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <a id="update" class="item" href="/update">Edit User</a>
+                <a id="logout" class="item" href="/logout">Logout </a>
+            </div>
+        </div>
+    </div>
 </nav>
 
 <script>

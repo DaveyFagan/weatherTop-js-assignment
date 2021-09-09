@@ -20,6 +20,7 @@ app.engine(
   })
 );
 app.set("view engine", ".hbs");
+app.use(express.static('public'));
 
 const routes = require("./routes");
 app.use("/", routes);

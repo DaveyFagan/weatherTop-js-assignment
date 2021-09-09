@@ -25,10 +25,10 @@
           "windDirection": 96,
           "date": "2021-04-25T07:20:42.138Z",
           "weatherCode": "Rain",
-          "tempF": 42.8,
+          "tempF": "42.80",
           "beaufort": 1,
           "windCompass": "East South East",
-          "chill": 6.883471341592669,
+          "chill": "6.88",
           "latestIcon": "cloud rain",
           "maxTemp": 6,
           "minTemp": 0.5,
@@ -67,10 +67,10 @@
           "windDirection": 102,
           "date": "2021-04-25T07:20:42.138Z",
           "weatherCode": "Partial clouds",
-          "tempF": 32.9,
+          "tempF": "32.90",
           "beaufort": 1,
           "windCompass": "East South East",
-          "chill": -0.14048980101855166,
+          "chill": "-0.14",
           "latestIcon": "cloud sun",
           "maxTemp": 8,
           "minTemp": 0.5,
@@ -90,6 +90,14 @@
       "name": "Swords",
       "lat": "53.4557",
       "lng": "-6.2197",
+      "readings": []
+    },
+    {
+      "id": "f4b3c060-0fde-11ec-a983-753fea565ce1",
+      "userid": "dbe3f9b0-0fde-11ec-a983-753fea565ce1",
+      "name": "Swords",
+      "lat": "52.08806",
+      "lng": "-7.62528",
       "readings": []
     }
   ]

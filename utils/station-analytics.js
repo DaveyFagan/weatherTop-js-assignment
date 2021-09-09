@@ -25,58 +25,43 @@ const stationAnalytics = {
     if(station.readings.length > 0){
       const latestReading =station.readings[station.readings.length - 1];
       logger.info("Latest readings are: " + latestReading.code);
-
       weatherCode = stationConversion.convertWeatherCode(latestReading.code);
       latestReading.weatherCode = weatherCode;
-    
       tempF = stationConversion.celciusToFahrenheit(latestReading.temperature);
-      latestReading.tempF = tempF;
-
+      latestReading.tempF = tempF.toFixed(2);
       beaufort = stationConversion.convertToBeaufort(latestReading.windSpeed);
       latestReading.beaufort = beaufort;
-      
       windCompass = stationConversion.degreesToCompass(latestReading.windDirection);
       latestReading.windCompass = windCompass;
-      
       chill = stationConversion.windChillCalculator(latestReading.temperature, latestReading.windSpeed);
-      latestReading.chill = chill;
-
+      latestReading.chill = chill.toFixed(2);
       latestIcon = stationConversion.convertWeatherIcons(latestReading.code);
       latestReading.latestIcon = latestIcon;
       logger.info("Latest icon is: " + latestIcon);
-
       maxTemp = stationAnalytics.getMaxTemp(station);
       latestReading.maxTemp = maxTemp;
       logger.info("Max temp;" + maxTemp);
-
       minTemp = stationAnalytics.getMinTemp(station);
       latestReading.minTemp = minTemp;
       logger.info("Min temp;" + minTemp);
-
       maxWind = stationAnalytics.getMaxWind(station);
       latestReading.maxWind = maxWind;
       logger.info("Max wind;" + maxWind);
-
       minWind = stationAnalytics.getMinWind(station);
       latestReading.minWind = minWind;
       logger.info("Min wind;" + minWind);
-
       maxPressure = stationAnalytics.getMaxPressure(station);
       latestReading.maxPressure = maxPressure;
       logger.info("Max pressure;" + maxPressure);
-
       minPressure = stationAnalytics.getMinPressure(station);
       latestReading.minPressure = minPressure;
       logger.info("Min pressure;" + minPressure);
-
       tempTrend = stationAnalytics.getTempTrend(station);
       latestReading.tempTrend = tempTrend;
       logger.info("Temperature trend: " + tempTrend);
-
       pressureTrend = stationAnalytics.getPressureTrend(station);
       latestReading.pressureTrend = pressureTrend;
       logger.info("Pressure trend: " + pressureTrend);
-
       windSpeedTrend = stationAnalytics.getWindSpeedTrend(station);
       latestReading.windSpeedTrend = windSpeedTrend;
       logger.info("WindSpeed trend: " + windSpeedTrend);

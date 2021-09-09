@@ -8,8 +8,6 @@ const accounts = require ('./accounts.js');
 const stationAnalytics = require("../utils/station-analytics.js");
 const _ = require('lodash');
 
-
-
 const dashboard = {
     index(request, response) {
 
@@ -19,8 +17,6 @@ const dashboard = {
             return a.name.localeCompare(b.name);
         });
         logger.info(alpha);
-
-
         console.log("Stations are: " + alpha);
 
         let latestWeather = null;
@@ -28,7 +24,6 @@ const dashboard = {
                 latestWeather = stationAnalytics.getLatestWeather(alpha[i]);
                 console.log("Latest weather is: " + latestWeather);
         }
-
 
         const viewData = {
             title: "WeatherTop Dashboard",
