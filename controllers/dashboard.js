@@ -1,7 +1,6 @@
 "use strict";
 
 const logger = require("../utils/logger");
-const stationConversion = require("../utils/station-conversion.js");
 const stationStore = require('../models/station-store.js');
 const uuid = require('uuid');
 const accounts = require ('./accounts.js');
@@ -18,13 +17,11 @@ const dashboard = {
         });
         logger.info(alpha);
         console.log("Stations are: " + alpha);
-
         let latestWeather = null;
         for(let i = 0; i < alpha.length; i++){
                 latestWeather = stationAnalytics.getLatestWeather(alpha[i]);
                 console.log("Latest weather is: " + latestWeather);
         }
-
         const viewData = {
             title: "WeatherTop Dashboard",
             stations: alpha,

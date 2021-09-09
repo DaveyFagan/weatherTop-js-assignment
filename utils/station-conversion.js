@@ -1,37 +1,6 @@
 "use strict";
 
 const stationConversion = {
-/*
-  convertWeatherCode(code) {
-    if (code == 100) {
-      return "Clear";
-    }
-    if (code == 200) {
-      return "Partial clouds";
-    }
-    if (code == 300) {
-      return "Cloudy";
-    }
-    if (code == 400) {
-      return "Light Showers";
-    }
-    if (code == 500) {
-      return "Heavy Showers";
-    }
-    if (code == 600) {
-      return "Rain";
-    }
-    if (code == 700) {
-      return "Snow";
-    }
-    if (code == 800) {
-      return "Thunder";
-    } else {
-      return "incorrect";
-    }
-  },
-
- */
   convertWeatherCode(code) {
     if (code < 200) {
       return "clear";
@@ -51,7 +20,7 @@ const stationConversion = {
     if (code >= 700 && code < 800) {
       return "Fog";
     }
-    if (code == 800) {
+    if (code === 800) {
       return "Sunny";
     }
     if (code > 800){
@@ -80,7 +49,7 @@ const stationConversion = {
     if (code >= 700 && code < 800) {
       return "smog";
     }
-    if (code == 800) {
+    if (code === 800) {
       return "sun";
     }
     if (code > 800){
@@ -164,12 +133,6 @@ const stationConversion = {
   windChillCalculator(temperature, windSpeed) {
     return 13.2 + 0.6215 * temperature - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * temperature * Math.pow(windSpeed, 0.16);
   },
-
-
 };
   
-
-
-
-
 module.exports = stationConversion;

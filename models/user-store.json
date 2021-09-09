@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "firstName": "homer",
+      "firstName": "Homer",
       "lastName": "simpson",
       "email": "homer@simpson.com",
       "password": "secret1",
@@ -13,13 +13,6 @@
       "email": "marge@simpson.com",
       "password": "secret",
       "id": "2b6f0989-7b7f-4a38-ad26-aa06b922d751"
-    },
-    {
-      "firstName": "David",
-      "lastName": "Fagan",
-      "email": "david@fagan.com",
-      "password": "secret",
-      "id": "dbe3f9b0-0fde-11ec-a983-753fea565ce1"
     }
   ]
 }

@@ -1,8 +1,6 @@
 "use strict";
 
 const logger = require("../utils/logger");
-const stationStore = require('../models/station-store.js');
-//const uuid = require('uuid');
 const accounts = require ('./accounts.js');
 const userStore = require('../models/user-store.js');
 
@@ -21,19 +19,17 @@ const update = {
 
     update(request, response) {
         const loggedInUser = accounts.getCurrentUser(request);
-        const user = userStore.getUserByEmail(loggedInUser.email);
-        const b = request.body;
-        logger.info("User: " + user);
-        //user.id = uuid.v1();
+        logger.info("User: " + loggedInUser);
         const newUser = {
             firstname: request.body.firstname,
             lastname: request.body.lastname,
             email: request.body.email,
             password: request.body.password
         };
-        logger.info(`Updating user ${user}`);
-        stationStore.updateUser(user, newUser);
-        response.redirect("/update" );
+        logger.info(`Updating user ${loggedInUser}`);
+        userStore.updateUser(loggedInUser, newUser);
+        response.cookie('station', '');
+        response.redirect('/');
     }
 };
 

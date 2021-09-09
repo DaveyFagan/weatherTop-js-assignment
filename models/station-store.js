@@ -45,15 +45,6 @@ const stationStore = {
     this.store.save();
   },
 
-
-  updateUser(user, newUser) {
-   // user.id = newUser.id;
-    user.firstName = newUser.firstname;
-    user.lastName = newUser.lastname;
-    user.email = newUser.email;
-    user.password = newUser.password;
-    this.store.save();
-  },
 };
 
 module.exports = stationStore;

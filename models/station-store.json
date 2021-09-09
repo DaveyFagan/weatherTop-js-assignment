@@ -117,12 +117,67 @@
       "readings": []
     },
     {
-      "id": "f4b3c060-0fde-11ec-a983-753fea565ce1",
-      "userid": "dbe3f9b0-0fde-11ec-a983-753fea565ce1",
-      "name": "Swords",
+      "id": "a60c74c0-119b-11ec-8495-f3220dc0bdfc",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "name": "Dungarven",
       "lat": "52.08806",
       "lng": "-7.62528",
-      "readings": []
+      "readings": [
+        {
+          "date": "9/9/2021, 19:28:15",
+          "code": 804,
+          "temperature": 17.88,
+          "windSpeed": 2.68,
+          "pressure": 1004,
+          "windDirection": 214,
+          "id": "b32433a0-119b-11ec-8495-f3220dc0bdfc",
+          "weatherCode": "Cloudy",
+          "tempF": "64.18",
+          "beaufort": 1,
+          "windCompass": "South West",
+          "chill": "19.30",
+          "latestIcon": "cloud",
+          "maxTemp": 17.88,
+          "minTemp": 17.88,
+          "maxWind": 2.68,
+          "minWind": 2.68,
+          "maxPressure": 1004,
+          "minPressure": 1004,
+          "tempTrend": null,
+          "pressureTrend": null,
+          "windSpeedTrend": null
+        },
+        {
+          "id": "c0b62b90-119b-11ec-8495-f3220dc0bdfc",
+          "code": "200",
+          "temperature": "22",
+          "windSpeed": "22",
+          "windDirection": "22",
+          "pressure": "999",
+          "date": "9/9/2021, 19:28:39",
+          "weatherCode": "Thunder",
+          "tempF": "71.60",
+          "beaufort": 4,
+          "windCompass": "North North East",
+          "chill": "22.53",
+          "latestIcon": "bolt",
+          "maxTemp": "22",
+          "minTemp": 17.88,
+          "maxWind": "22",
+          "minWind": 2.68,
+          "maxPressure": 1004,
+          "minPressure": "999",
+          "tempTrend": "arrow up",
+          "pressureTrend": "arrow down",
+          "windSpeedTrend": "arrow up"
+        }
+      ]
+    },
+    {
+      "firstname": "homerdfd",
+      "lastname": "simpsondf",
+      "email": "homer@simpson.com",
+      "password": "secret1df"
     }
   ]
 }

@@ -3,11 +3,9 @@
 const logger = require('../utils/logger');
 const stationStore = require('../models/station-store.js');
 const stationAnalytics = require("../utils/station-analytics.js");
-//const stationConversion = require("../utils/station-conversion.js");
 const uuid = require("uuid");
 const _ = require('lodash');
 const axios = require("axios");
-//const oneCallRequest = `https://api.openweathermap.org/data/2.5/onecall?lat=52.160858&lon=-7.152420&units=metric&appid=3261569696a6a35939cf9e8d8cb03127`
 
 const station = {
     index(request, response) {
@@ -123,7 +121,6 @@ const station = {
         };
         response.render('station-id', viewData);
     },
-
 };
 
 module.exports = station;
