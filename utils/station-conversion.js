@@ -1,7 +1,7 @@
 "use strict";
 
 const stationConversion = {
-
+/*
   convertWeatherCode(code) {
     if (code == 100) {
       return "Clear";
@@ -31,30 +31,60 @@ const stationConversion = {
     }
   },
 
-  convertWeatherIcons(code) {
-    if (code == 100) {
-      return "sun";
+ */
+  convertWeatherCode(code) {
+    if (code < 200) {
+      return "clear";
     }
-    if (code == 200) {
-      return "cloud sun";
+    if (code >= 200 && code < 300) {
+      return "Thunder";
     }
-    if (code == 300) {
-      return "cloud";
+    if (code >= 300 && code < 500) {
+      return "Light Rain";
     }
-    if (code == 400) {
-      return "cloud sun rain";
+    if (code >= 500 && code < 600) {
+      return "Heavy Rain";
     }
-    if (code == 500) {
-      return "cloud showers heavy";
+    if (code >= 600 && code < 700) {
+      return "Snow";
     }
-    if (code == 600) {
-      return "cloud rain";
-    }
-    if (code == 700) {
-      return "snowflake";
+    if (code >= 700 && code < 800) {
+      return "Fog";
     }
     if (code == 800) {
+      return "Sunny";
+    }
+    if (code > 800){
+      return "Cloudy"
+    } else {
+      return "Sunny";
+    }
+  },
+
+  convertWeatherIcons(code) {
+    if (code < 200) {
+      return "sun";
+    }
+    if (code >= 200 && code < 300) {
       return "bolt";
+    }
+    if (code >= 300 && code < 500) {
+      return "cloud sun rain";
+    }
+    if (code >= 500 && code < 600) {
+      return "cloud showers heavy";
+    }
+    if (code >= 600 && code < 700) {
+      return "snowflake";
+    }
+    if (code >= 700 && code < 800) {
+      return "smog";
+    }
+    if (code == 800) {
+      return "sun";
+    }
+    if (code > 800){
+      return "cloud"
     } else {
       return "sun";
     }
